@@ -26,5 +26,5 @@ script:
   - sbt ++$TRAVIS_SCALA_VERSION -Dfile.encoding=UTF8 benchmark/"jmh:run -i 5 -wi 5 -f1 -t1 --jvmArgs -Xms2g --jvmArgs -Xmx2g"
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash -t d8b28f0c-6791-4a65-9e45-78a883e59110)
+  #- bash <(curl -s https://codecov.io/bash -t d8b28f0c-6791-4a65-9e45-78a883e59110)
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "series/1.0" && sbt +publish
