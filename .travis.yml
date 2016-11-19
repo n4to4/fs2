@@ -21,10 +21,10 @@ env:
 
 script:
   - sbt ++$TRAVIS_SCALA_VERSION -Dfile.encoding=UTF8 test mimaReportBinaryIssues
-  - sbt clean coverage test coverageReport
   - (test $TRAVIS_SCALA_VERSION == "2.11.8" && sbt ++$TRAVIS_SCALA_VERSION -Dfile.encoding=UTF8 -J-Xms2g -J-Xmx2g docs/tut) || test $TRAVIS_SCALA_VERSION == "2.12.0"
   - sbt ++$TRAVIS_SCALA_VERSION -Dfile.encoding=UTF8 benchmark/"jmh:run -i 5 -wi 5 -f1 -t1 --jvmArgs -Xms2g --jvmArgs -Xmx2g"
+  - sbt clean coverage test coverageReport
 
 after_success:
-  #- bash <(curl -s https://codecov.io/bash -t d8b28f0c-6791-4a65-9e45-78a883e59110)
+  - bash <(curl -s https://codecov.io/bash)
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "series/1.0" && sbt +publish
