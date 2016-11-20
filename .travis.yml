@@ -26,3 +26,4 @@ script:
 
 after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "series/1.0" && sbt +publish
+
