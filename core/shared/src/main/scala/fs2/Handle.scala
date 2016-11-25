@@ -212,7 +212,7 @@ final class Handle[+F[_],+A] private[fs2] (
       }
     }
 
-  /** Emits the first `n` elements of the input and return the new `Handle`. */
+  /** Emits the first `n` elements of the input and returns the new `Handle`. */
   def take(n: Long): Pull[F,A,Handle[F,A]] =
     if (n <= 0) Pull.pure(this)
     else awaitLimit(if (n <= Int.MaxValue) n.toInt else Int.MaxValue).flatMap {

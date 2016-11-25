@@ -129,7 +129,7 @@ trait Chunk[+A] { self =>
   /**
    * Converts this chunk to a `Chunk.Booleans`, allowing access to the underlying array of elements.
    * If this chunk is already backed by an unboxed array of booleans, this method runs in constant time.
-   * Otherwise, this method will copy of the elements of this chunk in to a single array.
+   * Otherwise, this method will copy the elements of this chunk in to a single array.
    */
   def toBooleans[B >: A](implicit ev: B =:= Boolean): Chunk.Booleans = this match {
     case c: Chunk.Booleans => c
@@ -139,7 +139,7 @@ trait Chunk[+A] { self =>
   /**
    * Converts this chunk to a `Chunk.Bytes`, allowing access to the underlying array of elements.
    * If this chunk is already backed by an unboxed array of booleans, this method runs in constant time.
-   * Otherwise, this method will copy of the elements of this chunk in to a single array.
+   * Otherwise, this method will copy the elements of this chunk in to a single array.
    */
   def toBytes[B >: A](implicit ev: B =:= Byte): Chunk.Bytes = this match {
     case c: Chunk.Bytes => c
@@ -149,7 +149,7 @@ trait Chunk[+A] { self =>
   /**
    * Converts this chunk to a `Chunk.Longs`, allowing access to the underlying array of elements.
    * If this chunk is already backed by an unboxed array of booleans, this method runs in constant time.
-   * Otherwise, this method will copy of the elements of this chunk in to a single array.
+   * Otherwise, this method will copy the elements of this chunk in to a single array.
    */
   def toLongs[B >: A](implicit ev: B =:= Long): Chunk.Longs = this match {
     case c: Chunk.Longs => c
@@ -159,7 +159,7 @@ trait Chunk[+A] { self =>
   /**
    * Converts this chunk to a `Chunk.Doubles`, allowing access to the underlying array of elements.
    * If this chunk is already backed by an unboxed array of booleans, this method runs in constant time.
-   * Otherwise, this method will copy of the elements of this chunk in to a single array.
+   * Otherwise, this method will copy the elements of this chunk in to a single array.
    */
   def toDoubles[B >: A](implicit ev: B =:= Double): Chunk.Doubles = this match {
     case c: Chunk.Doubles => c
